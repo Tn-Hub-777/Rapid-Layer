@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RapidLayer | Precision 3D Printing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+<div class="page-noise" aria-hidden="true"></div>
+
+<nav class="navbar">
+  <a class="logo" href="index.html" aria-label="RapidLayer home">
+    <img src="images/RapidLayer.png" alt="RapidLayer">
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="upload.html">Upload</a>
+    <a href="cart.html">Cart <span class="nav-count" id="cartCount">0</span></a>
+    <a href="admin.html">Admin</a>
+  </div>
+
+  <button class="button button-secondary logout" type="button" onclick="logout()">Logout</button>
+</nav>
+
+<main class="home-shell">
+  <div class="home-model-bg" id="homeModelBg" aria-hidden="true">
+    <canvas id="homeObject"></canvas>
+  </div>
+
+  <section class="hero hero-home scroll-section">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow">Industrial-grade additive manufacturing</p>
+      <h1>From STL to production-ready quote in minutes.</h1>
+      <p class="hero-text">
+        RapidLayer helps teams upload models, auto-calculate print weight, price by material, and move straight into a production cart without the back-and-forth.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="upload.html">Upload a Model</a>
+        <a class="button button-secondary" href="#materials">View Materials</a>
+      </div>
+
+      <div class="hero-metrics">
+        <article class="metric-card glass-card">
+          <span>Quote Speed</span>
+          <strong>Instant</strong>
+          <p>Automatic STL weight and cost analysis.</p>
+        </article>
+        <article class="metric-card glass-card">
+          <span>Materials</span>
+          <strong>4 Core Options</strong>
+          <p>PLA, PETG, ABS and TPU pricing built in.</p>
+        </article>
+        <article class="metric-card glass-card">
+          <span>Use Cases</span>
+          <strong>Prototype to Production</strong>
+          <p>Engineering samples, fixtures, enclosures and end-use parts.</p>
+        </article>
+      </div>
+    </div>
+
+    <aside class="hero-panel glass-card" data-reveal>
+      <p class="panel-label">Digital manufacturing pipeline</p>
+      <h2>Upload once. Price instantly. Scale with confidence.</h2>
+      <div class="spec-list">
+        <div>
+          <span>Step 1</span>
+          <strong>Upload STL model</strong>
+        </div>
+        <div>
+          <span>Step 2</span>
+          <strong>Select material and quantity</strong>
+        </div>
+        <div>
+          <span>Step 3</span>
+          <strong>Get weight and pricing automatically</strong>
+        </div>
+        <div>
+          <span>Step 4</span>
+          <strong>Add quote to cart for fulfillment</strong>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="story-grid scroll-section">
+    <article class="section-copy" data-reveal>
+      <p class="eyebrow">Why RapidLayer</p>
+      <h2>Built for serious hardware teams that care about precision and turnaround.</h2>
+      <p>
+        Whether you are validating a mechanism, launching a robotics assembly, or shipping low-volume parts, the platform is designed to make quoting feel fast, visual, and trustworthy.
+      </p>
+    </article>
+
+    <div class="feature-grid">
+      <article class="feature-card glass-card" data-tilt data-reveal>
+        <h3>Automatic Geometry Analysis</h3>
+        <p>Model volume is converted into weight estimates using material density, so quotes update as soon as a file is analyzed.</p>
+      </article>
+      <article class="feature-card glass-card" data-tilt data-reveal>
+        <h3>Material-aware Pricing</h3>
+        <p>Each material carries its own density and price-per-gram, letting customers compare cost before checkout.</p>
+      </article>
+      <article class="feature-card glass-card" data-tilt data-reveal>
+        <h3>Cart-ready Workflow</h3>
+        <p>Every quoted part can be added to cart with quantity, weight, price and dimensions preserved for order review.</p>
+      </article>
+      <article class="feature-card feature-image" data-reveal>
+        <img src="images/image5.png" alt="RapidLayer sample print">
+      </article>
+    </div>
+  </section>
+
+  <section class="materials-section scroll-section" id="materials">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow">Material pricing</p>
+      <h2>Transparent rates tied directly to print weight.</h2>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="price-card glass-card" data-reveal>
+        <h3>PLA</h3>
+        <p class="price-tag">Rs 3 / gram</p>
+        <p>Fast, clean, and dependable for prototypes, concept models, and design validation.</p>
+      </article>
+      <article class="price-card glass-card" data-reveal>
+        <h3>PETG</h3>
+        <p class="price-tag">Rs 3.5 / gram</p>
+        <p>Better chemical resistance and strength for durable functional parts.</p>
+      </article>
+      <article class="price-card glass-card" data-reveal>
+        <h3>ABS</h3>
+        <p class="price-tag">Rs 3.5 / gram</p>
+        <p>A reliable engineering plastic for tougher enclosures and workshop use.</p>
+      </article>
+      <article class="price-card glass-card" data-reveal>
+        <h3>TPU</h3>
+        <p class="price-tag">Rs 4 / gram</p>
+        <p>Flexible and impact-friendly for wearables, seals, dampers, and custom grips.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="process-section scroll-section">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow">Customer flow</p>
+      <h2>A storefront designed around how 3D print buying actually happens.</h2>
+    </div>
+
+    <div class="process-timeline">
+      <article class="timeline-step glass-card" data-reveal>
+        <span>01</span>
+        <h3>Drop your STL</h3>
+        <p>Customers upload their printable model directly into the quote workspace.</p>
+      </article>
+      <article class="timeline-step glass-card" data-reveal>
+        <span>02</span>
+        <h3>Preview and validate</h3>
+        <p>A live viewer helps them inspect the geometry before requesting production.</p>
+      </article>
+      <article class="timeline-step glass-card" data-reveal>
+        <span>03</span>
+        <h3>See weight and price</h3>
+        <p>Material density and rate-per-gram turn mesh volume into an instant estimate.</p>
+      </article>
+      <article class="timeline-step glass-card" data-reveal>
+        <span>04</span>
+        <h3>Build the order cart</h3>
+        <p>Each quoted part is stored as a cart line item, ready for production review.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="catalog-preview-section scroll-section">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow">Featured products</p>
+      <h2>Three standout prints from your real catalog, ready to order.</h2>
+    </div>
+
+    <div class="catalog-preview-grid" id="featuredCatalog"></div>
+
+    <div class="catalog-preview-actions" data-reveal>
+      <a class="button button-secondary" href="products.html">View More Products</a>
+    </div>
+  </section>
+
+  <section class="cta-section scroll-section">
+    <div class="cta-panel glass-card" data-reveal>
+      <p class="eyebrow">Ready to launch quoting?</p>
+      <h2>Give customers a premium upload-to-cart experience today.</h2>
+      <p>Start with STL uploads, automated weight pricing, and a clean cart flow built for a 3D printing storefront.</p>
+      <a class="button button-primary" href="upload.html">Start a Quote</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h3>RapidLayer</h3>
+      <p>Precision additive manufacturing for prototypes, fixtures and production-ready parts.</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="upload.html">Upload</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+    </div>
+
+    <div>
+      <h4>Materials</h4>
+      <p>PLA</p>
+      <p>PETG</p>
+      <p>ABS</p>
+      <p>TPU</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>support@rapidlayer.in</p>
+      <p>Mon-Sat | 9 AM to 7 PM</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">Copyright 2026 RapidLayer. All rights reserved.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

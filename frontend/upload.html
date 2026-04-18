@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RapidLayer | Upload and Quote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="upload">
+<div class="page-noise" aria-hidden="true"></div>
+
+<nav class="navbar">
+  <a class="logo" href="index.html" aria-label="RapidLayer home">
+    <img src="images/RapidLayer.png" alt="RapidLayer">
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="upload.html">Upload</a>
+    <a href="cart.html">Cart <span class="nav-count" id="cartCount">0</span></a>
+    <a href="admin.html">Admin</a>
+  </div>
+
+  <button class="button button-secondary logout" type="button" onclick="logout()">Logout</button>
+</nav>
+
+<main class="page-shell">
+  <section class="page-hero compact-hero">
+    <div data-reveal>
+      <p class="eyebrow">Quote workspace</p>
+      <h1>Upload your STL and price it automatically.</h1>
+      <p class="hero-text">
+        The viewer calculates volume from the model geometry, converts it to weight using the selected material, and creates a cart-ready quote.
+      </p>
+    </div>
+
+    <article class="glass-card info-card" data-reveal>
+      <p class="panel-label">Supported input</p>
+      <h2>STL quoting flow</h2>
+      <p>Upload one STL file, pick a material, set quantity, and add the generated quote to your cart.</p>
+    </article>
+  </section>
+
+  <section class="quote-layout">
+    <article class="glass-card viewer-panel" data-reveal>
+      <div class="panel-header">
+        <div>
+          <p class="panel-label">Model preview</p>
+          <h2>Geometry viewer</h2>
+        </div>
+        <p class="muted-text">Orbit, inspect, and validate before quoting.</p>
+      </div>
+
+      <div id="modelViewer" class="viewer-stage">
+        <div class="viewer-placeholder">
+          <p>Drop an STL here to preview the part.</p>
+        </div>
+      </div>
+
+      <div class="viewer-stats">
+        <div class="stat-chip">
+          <span>Volume</span>
+          <strong id="volumeValue">0.00 cm3</strong>
+        </div>
+        <div class="stat-chip">
+          <span>Weight / part</span>
+          <strong id="weightValue">0.00 g</strong>
+        </div>
+        <div class="stat-chip">
+          <span>Bounds</span>
+          <strong id="dimensionsValue">0 x 0 x 0 mm</strong>
+        </div>
+      </div>
+    </article>
+
+    <article class="glass-card quote-panel" data-reveal>
+      <div class="panel-header">
+        <div>
+          <p class="panel-label">Automatic pricing</p>
+          <h2>Build your quote</h2>
+        </div>
+      </div>
+
+      <label class="drop-zone" id="dropZone" for="fileInput" tabindex="0" role="button" aria-label="Upload STL file">
+        <input id="fileInput" class="visually-hidden" type="file" accept=".stl">
+        <p class="drop-zone-title">Drag and drop your STL</p>
+        <p class="drop-zone-copy">or click to choose a file from your device</p>
+        <span class="drop-zone-button">Choose STL File</span>
+        <span class="drop-zone-file" id="selectedFileName">No file selected</span>
+      </label>
+
+      <div class="field-grid">
+        <label class="field">
+          <span>Material</span>
+          <select id="materialSelect">
+            <option value="pla">PLA</option>
+            <option value="petg">PETG</option>
+            <option value="abs">ABS</option>
+            <option value="tpu">TPU</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Quantity</span>
+          <input id="quantityInput" type="number" min="1" step="1" value="1">
+        </label>
+      </div>
+
+      <div class="quote-breakdown">
+        <div class="summary-row">
+          <span>Material rate</span>
+          <strong id="materialRateValue">Rs 3.00 / g</strong>
+        </div>
+        <div class="summary-row">
+          <span>Total weight</span>
+          <strong id="totalWeightValue">0.00 g</strong>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total estimate</span>
+          <strong id="priceValue">Rs 0.00</strong>
+        </div>
+      </div>
+
+      <p class="muted-text quote-note">Weight = model volume x material density. Price = total weight x rate per gram.</p>
+      <p class="status-message" id="uploadStatus">Upload an STL model to generate a live quote.</p>
+
+      <div class="action-row">
+        <button class="button button-primary" id="addToCartButton" type="button" disabled>Add Quote to Cart</button>
+        <a class="button button-secondary" href="cart.html">Open Cart</a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h3>RapidLayer</h3>
+      <p>Precision additive manufacturing for prototypes, fixtures and production-ready parts.</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="upload.html">Upload</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+    </div>
+
+    <div>
+      <h4>Materials</h4>
+      <p>PLA</p>
+      <p>PETG</p>
+      <p>ABS</p>
+      <p>TPU</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>support@rapidlayer.in</p>
+      <p>Mon-Sat | 9 AM to 7 PM</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">Copyright 2026 RapidLayer. All rights reserved.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/STLLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

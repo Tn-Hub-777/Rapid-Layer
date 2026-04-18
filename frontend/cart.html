@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RapidLayer | Cart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cart">
+<div class="page-noise" aria-hidden="true"></div>
+
+<nav class="navbar">
+  <a class="logo" href="index.html" aria-label="RapidLayer home">
+    <img src="images/RapidLayer.png" alt="RapidLayer">
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="upload.html">Upload</a>
+    <a href="cart.html">Cart <span class="nav-count" id="cartCount">0</span></a>
+    <a href="admin.html">Admin</a>
+  </div>
+
+  <button class="button button-secondary logout" type="button" onclick="logout()">Logout</button>
+</nav>
+
+<main class="page-shell">
+  <section class="page-hero compact-hero">
+    <div data-reveal>
+      <p class="eyebrow">Order review</p>
+      <h1>Your quoted parts, ready for production.</h1>
+      <p class="hero-text">
+        Every uploaded model is stored with its material, quantity, weight, dimensions, and calculated price so customers can review the order before reaching out.
+      </p>
+    </div>
+
+    <article class="glass-card info-card" data-reveal>
+      <p class="panel-label">Cart behavior</p>
+      <h2>Local quote basket</h2>
+      <p>Quotes added from the upload page stay in cart until removed or cleared.</p>
+    </article>
+  </section>
+
+  <section class="cart-layout">
+    <div class="cart-list">
+      <article class="glass-card empty-state" id="cartEmpty">
+        <p class="panel-label">No items yet</p>
+        <h2>Your cart is empty.</h2>
+        <p>Add a catalog product or upload an STL quote and it will show up here automatically.</p>
+        <div class="action-row">
+          <a class="button button-primary" href="upload.html">Go to Upload</a>
+          <a class="button button-secondary" href="products.html">Browse Products</a>
+        </div>
+      </article>
+
+      <div id="cartItems" class="cart-items"></div>
+    </div>
+
+    <aside class="glass-card summary-panel" data-reveal>
+      <p class="panel-label">Cart summary</p>
+      <h2>Production estimate</h2>
+
+      <div class="quote-breakdown">
+        <div class="summary-row">
+          <span>Quoted line items</span>
+          <strong id="summaryItems">0</strong>
+        </div>
+        <div class="summary-row">
+          <span>Total quantity</span>
+          <strong id="summaryQuantity">0</strong>
+        </div>
+        <div class="summary-row">
+          <span>Total print weight</span>
+          <strong id="summaryWeight">0.00 g</strong>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total price</span>
+          <strong id="summaryPrice">Rs 0.00</strong>
+        </div>
+      </div>
+
+      <div class="summary-actions">
+        <button class="button button-primary" id="checkoutButton" type="button">Place Production Request</button>
+        <button class="button button-secondary" id="clearCartButton" type="button">Clear Cart</button>
+      </div>
+
+      <p class="status-message" id="cartStatus">Submitting the cart stores a production request that the admin dashboard can review immediately.</p>
+      <p class="muted-text">Catalog products and STL quotes now flow into the same production queue.</p>
+    </aside>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h3>RapidLayer</h3>
+      <p>Precision additive manufacturing for prototypes, fixtures and production-ready parts.</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="upload.html">Upload</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+    </div>
+
+    <div>
+      <h4>Materials</h4>
+      <p>PLA</p>
+      <p>PETG</p>
+      <p>ABS</p>
+      <p>TPU</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>support@rapidlayer.in</p>
+      <p>Mon-Sat | 9 AM to 7 PM</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">Copyright 2026 RapidLayer. All rights reserved.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

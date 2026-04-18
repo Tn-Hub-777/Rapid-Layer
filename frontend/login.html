@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RapidLayer | Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+<div class="page-noise" aria-hidden="true"></div>
+
+<nav class="navbar">
+  <a class="logo" href="index.html" aria-label="RapidLayer home">
+    <img src="images/RapidLayer.png" alt="RapidLayer">
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="upload.html">Upload</a>
+    <a href="cart.html">Cart <span class="nav-count" id="cartCount">0</span></a>
+    <a href="admin.html">Admin</a>
+  </div>
+
+  <button class="button button-secondary logout" type="button" onclick="logout()">Login</button>
+</nav>
+
+<main class="page-shell auth-shell">
+  <section class="auth-layout">
+    <article class="glass-card auth-showcase" data-reveal>
+      <p class="eyebrow">Account access</p>
+      <h1>Sign in to manage quotes, products, and production orders.</h1>
+      <p class="hero-text">
+        The admin account unlocks the full operations dashboard. Customer accounts can upload STL files, build quotes, and submit cart requests into the same workflow.
+      </p>
+
+      <div class="auth-highlights">
+        <article class="glass-card auth-highlight">
+          <span>Admin</span>
+          <strong>See all users and orders</strong>
+          <p>Update statuses, dispatch jobs, and review the full production queue.</p>
+        </article>
+        <article class="glass-card auth-highlight">
+          <span>Customer</span>
+          <strong>Upload and request prints</strong>
+          <p>Generate STL quotes, add catalog items, and create local production requests.</p>
+        </article>
+      </div>
+
+      <div class="demo-accounts">
+        <button class="glass-card demo-card" type="button" data-demo-email="admin@rapidlayer.in" data-demo-password="rapidlayer123">
+          <span class="panel-label">Demo admin</span>
+          <strong>admin@rapidlayer.in</strong>
+          <p>Password: rapidlayer123</p>
+        </button>
+        <button class="glass-card demo-card" type="button" data-demo-email="mira@skylabs.in" data-demo-password="prototype123">
+          <span class="panel-label">Demo customer</span>
+          <strong>mira@skylabs.in</strong>
+          <p>Password: prototype123</p>
+        </button>
+      </div>
+    </article>
+
+    <article class="glass-card auth-panel" data-reveal>
+      <p class="panel-label">Welcome back</p>
+      <h2>RapidLayer login</h2>
+      <p>Use a demo account below or sign in with an existing local user record.</p>
+
+      <form class="auth-form" id="loginForm">
+        <label class="field">
+          <span>Email address</span>
+          <input id="loginEmail" type="email" placeholder="admin@rapidlayer.in" autocomplete="email" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="loginPassword" type="password" placeholder="Enter password" autocomplete="current-password" required>
+        </label>
+
+        <button class="button button-primary" type="submit">Sign In</button>
+      </form>
+
+      <p class="status-message" id="loginStatus">Demo credentials can be loaded with the cards on the left.</p>
+
+      <div class="glass-card auth-session hidden" id="sessionPanel">
+        <p class="panel-label">Current session</p>
+        <h3>Already signed in</h3>
+        <p id="sessionText"></p>
+        <div class="action-row" id="quickActions"></div>
+        <button class="button button-secondary" id="sessionLogout" type="button">Logout Current Session</button>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div>
+      <h3>RapidLayer</h3>
+      <p>Precision additive manufacturing for prototypes, fixtures and production-ready parts.</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="upload.html">Upload</a>
+      <a href="cart.html">Cart</a>
+    </div>
+
+    <div>
+      <h4>Demo Access</h4>
+      <p>Admin: admin@rapidlayer.in</p>
+      <p>Customer: mira@skylabs.in</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>support@rapidlayer.in</p>
+      <p>Mon-Sat | 9 AM to 7 PM</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">Copyright 2026 RapidLayer. All rights reserved.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
