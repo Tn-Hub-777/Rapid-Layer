@@ -1,0 +1,50 @@
+# Netlify Build Configuration for RapidLayer
+
+[build]
+  # Build command - installs dependencies
+  command = "npm install"
+  # Publish directory - the frontend files to deploy
+  publish = "frontend"
+  # Functions directory for serverless functions (optional, uncomment if converting Express to Functions)
+  # functions = "functions"
+
+[build.environment]
+  # Node version for Netlify build
+  NODE_VERSION = "18"
+
+# Redirects for API calls to external backend or to Netlify Functions
+#[[redirects]]
+ # # Redirect API calls to your Express backend (update with your backend URL)
+  #from = "/api/*"
+  #to = "https://your-backend-url.com/api/:splat"
+ # status = 200
+ # force = false
+
+# Rewrite for SPA - handles client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Custom headers (optional security headers)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+
+# Context-specific settings (optional)
+[context.production]
+  publish = "frontend"
+
+[context.deploy-preview]
+  publish = "frontend"
+
+[context.branch-deploy]
+  publish = "frontend"
+
+# Environment variables (set these in Netlify dashboard)
+# SUPABASE_URL = "your_supabase_url"
+# SUPABASE_KEY = "your_supabase_key"
+# FIREBASE_CONFIG = "your_firebase_config"
