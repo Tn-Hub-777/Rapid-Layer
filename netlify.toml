@@ -12,13 +12,6 @@
   # Node version for Netlify build
   NODE_VERSION = "18"
 
-# Redirects for API calls to external backend or to Netlify Functions
-#[[redirects]]
- # # Redirect API calls to your Express backend (update with your backend URL)
-  #from = "/api/*"
-  #to = "https://your-backend-url.com/api/:splat"
- # status = 200
- # force = false
 
 # Rewrite for SPA - handles client-side routing
 [[redirects]]
@@ -48,3 +41,13 @@
 # SUPABASE_URL = "your_supabase_url"
 # SUPABASE_KEY = "your_supabase_key"
 # FIREBASE_CONFIG = "your_firebase_config"
+=======
+[build]
+  publish = "frontend"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+>>>>>>> 99174a462827ca3fe938bab188ffa84d6e705dd5
